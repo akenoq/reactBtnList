@@ -6,8 +6,12 @@ export default function SelectBtn (props) {
 
         const nameParam = paramsObj.name;
 
+        function btnClickFunction() {
+            globalBus().resultBox.print(nameParam);
+        }
+
         return (
-          <button onClick={globalBus().resultBox.print(nameParam)}>
+          <button onClick={btnClickFunction}>
               {nameParam}
           </button>
         );
