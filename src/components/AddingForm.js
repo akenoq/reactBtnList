@@ -9,6 +9,8 @@ export default class AddingForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value: "lol"};
+
+        globalBus().formNameSpace = this;
     }
 
     onSubmit = (event) => {
@@ -20,6 +22,13 @@ export default class AddingForm extends React.Component {
     onValueChange = (event) => {
         this.setState({value: event.target.value});
     };
+
+    /**
+     * clear content of textField
+     */
+    clearTextField() {
+        this.setState({value: ""});
+    }
 
     render() {
         return (

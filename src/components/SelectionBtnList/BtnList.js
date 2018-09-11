@@ -31,6 +31,9 @@ export default class BtnList extends React.Component {
             name: name
         });
 
+        // clear textField content
+        globalBus().formNameSpace.clearTextField();
+
         this.setState({array: updArr});
     }
 
