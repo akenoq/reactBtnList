@@ -1,14 +1,14 @@
 import React from 'react';
 import globalBus from './../../actions/globalBus';
 
-// можно сделать функцией
-export default class SelectBtn extends React.Component {
+export default function SelectBtn (props) {
+        const {paramsObj} = props;
 
-    render() {
+        const nameParam = paramsObj.name;
+
         return (
-          <button onClick={globalBus().resultBox.print(this.props.name)}>
-              {this.props.name}
+          <button onClick={globalBus().resultBox.print(nameParam)}>
+              {nameParam}
           </button>
         );
-    }
 }
