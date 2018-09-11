@@ -32,14 +32,15 @@ export default class BtnList extends React.Component {
 
     // рендерить массив <SelectBtn>
     render() {
-        // массив с разметкой
-        // let arr = this.state.array.map((elem, index) => {
-        //     let aName = elem.name;
-        //     return <SelectBtn key={index} name={aName}/>
-        // });
+
+        let arr = this.state.array.map((elem, index) => {
+             let aName = elem.name;
+             return <SelectBtn key={"my_arr_" + index} name={aName}/>
+        });
+
         return (
             <div>
-                {this.state.array.map((a) => <SelectBtn key={a.id} name={a.name}/>)}
+                {arr}
             </div>
         );
     }
