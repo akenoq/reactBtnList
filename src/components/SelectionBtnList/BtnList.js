@@ -39,8 +39,6 @@ export default class BtnList extends React.Component {
 
     // рендерить массив <SelectBtn>
     render() {
-
-
         let arr = this.state.array.map((elem, index) => {
              idCounter++;
              let aName = elem.name;

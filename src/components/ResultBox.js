@@ -12,6 +12,7 @@ export default class ResultBox extends React.Component {
     }
 
     print(name) {
+        console.log("PRINT TEXT: " + name);
         this.setState({result: name});
     }
 

@@ -8,7 +8,7 @@ export default class AddingForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: "lol"};
+        this.state = {value: ""};
 
         globalBus().formNameSpace = this;
     }
