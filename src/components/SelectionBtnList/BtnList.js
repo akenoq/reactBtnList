@@ -2,6 +2,8 @@ import React from 'react';
 import globalBus from './../../actions/globalBus';
 import SelectBtn from "./SelectBtn";
 
+let idCounter = 0;
+
 export default class BtnList extends React.Component {
 
     constructor(props) {
@@ -23,23 +25,31 @@ export default class BtnList extends React.Component {
                 name: this.state.array[i].name
             })
         }
+
         updArr.push({
             id: arrayLen,
             name: name
         });
+
+        // clear textField content
+        globalBus().formNameSpace.clearTextField();
+
         this.setState({array: updArr});
     }
 
     // рендерить массив <SelectBtn>
     render() {
-        // массив с разметкой
-        // let arr = this.state.array.map((elem, index) => {
-        //     let aName = elem.name;
-        //     return <SelectBtn key={index} name={aName}/>
-        // });
+
+
+        let arr = this.state.array.map((elem, index) => {
+             idCounter++;
+             let aName = elem.name;
+             return <SelectBtn key={"my_arr_" + idCounter} paramsObj={{name: aName}}/>
+        });
+
         return (
             <div>
-                {this.state.array.map((a) => <SelectBtn key={a.id} name={a.name}/>)}
+                {arr}
             </div>
         );
     }

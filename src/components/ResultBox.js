@@ -16,9 +16,11 @@ export default class ResultBox extends React.Component {
     }
 
     render() {
+        const resultStr = this.state.result;
+
         return (
             <h1>
-                {this.state.result}
+                {resultStr}
             </h1>
         );
     }

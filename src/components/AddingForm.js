@@ -10,18 +10,24 @@ export default class AddingForm extends React.Component {
         super(props);
         this.state = {value: "lol"};
 
-        this.onValueChange = this.onValueChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        globalBus().formNameSpace = this;
     }
 
-    onSubmit(event){
+    onSubmit = (event) => {
         alert(`${this.state.value}, added!`);
         event.preventDefault();
         globalBus().btnList.onAddName(this.state.value);
-    }
+    };
 
-    onValueChange(event) {
+    onValueChange = (event) => {
         this.setState({value: event.target.value});
+    };
+
+    /**
+     * clear content of textField
+     */
+    clearTextField() {
+        this.setState({value: ""});
     }
 
     render() {
